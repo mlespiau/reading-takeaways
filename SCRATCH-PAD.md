@@ -29,10 +29,10 @@ for c in $(docker ps | grep web | awk '{print $1}'); do docker exec -ti $c $COMM
 # Apache / HTTPD
 Count URLs accessed on a given hour
 ``` 
-cat access_log | grep 30/Dec/2016:10 | awk '{ print $9}' | sort | uniq -c
+cat access_log | grep 30/Dec/2016:10 | awk '{ print $9}' | sort | uniq -c | sort -gr | head
 ```
 
 Count request by IP for a given hour
 ``` 
-cat access_log | grep 30/Dec/2016:10 | awk '{ print $4}' | sort | uniq -c
+cat access_log | grep 30/Dec/2016:10 | awk '{ print $4}' | sort | uniq -c | sort -gr | head
 ```
