@@ -36,3 +36,18 @@ Count request by IP for a given hour
 ``` 
 cat access_log | grep 30/Dec/2016:10 | awk '{ print $4}' | sort | uniq -c | sort -gr | head
 ```
+
+# Curl
+Curl format to troubleshoot latency
+```
+echo "\n
+            time_namelookup:  %{time_namelookup}\n
+               time_connect:  %{time_connect}\n
+            time_appconnect:  %{time_appconnect}\n
+           time_pretransfer:  %{time_pretransfer}\n
+              time_redirect:  %{time_redirect}\n
+         time_starttransfer:  %{time_starttransfer}\n
+                            ----------\n
+                 time_total:  %{time_total}\n
+              size_download:  %{size_download}\n
+\n" > curl-format.txt
